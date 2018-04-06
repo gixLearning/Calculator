@@ -43,10 +43,9 @@ namespace Calculator {
                                 break;
                             }
                         case (2): {
-                                Console.WriteLine(ANGE_VARDE_TEXT);
-                                int x1 = int.Parse(Console.ReadLine());
-                                int x2 = int.Parse(Console.ReadLine());
-                                resultInString = Subtraction(x1, x2).ToString();
+                                Console.WriteLine("Lägg till tal och separera med -, avsluta med enter");
+                                string values = Console.ReadLine();
+                                resultInString = MultipleSubtraction(values).ToString();
                                 showResult = true;
                                 break;
                             }
@@ -103,6 +102,20 @@ namespace Calculator {
             }
             return result;
         }
+
+        private static int MultipleSubtraction(string values) {
+            string[] siffror;
+            int result = 0;
+
+            siffror = values.Split('-');
+            foreach (string item in siffror) {
+                if (int.TryParse(item, out int value)) {
+                    result = result - value;
+                }
+            }
+            return result;
+        }
+
         private static int Addition(int firstValue, int secondValue) {
             return firstValue + secondValue;
         }
