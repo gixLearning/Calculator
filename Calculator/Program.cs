@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Calculator {
     public class Program {
@@ -146,6 +147,10 @@ namespace Calculator {
             double result = 0;
 
             numberString = values.Split('-');
+            result = Double.Parse(numberString[0]);
+            numberString = numberString.Skip(1).ToArray();
+
+
             foreach (string item in numberString) {
                 if (Double.TryParse(item, out double value)) {
                     result -= value;
